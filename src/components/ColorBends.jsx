@@ -10,22 +10,22 @@ const ColorBends = ({ colors, rotation, speed, scale, frequency, warpStrength, m
         left: 0,
         width: '100%',
         height: '100%',
-        background: \`linear-gradient(\${rotation}deg, \${colors.join(', ')})\`,
-    opacity: transparent ? 0.8 : 1,
-    zIndex: -1,
-    overflow: 'hidden',
-  };
+        background: `linear-gradient(${rotation}deg, ${colors.join(', ')})`,
+        opacity: transparent ? 0.8 : 1,
+        zIndex: -1,
+        overflow: 'hidden',
+    };
 
-  return (
-    <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
-        <div style={gradientStyle}>
-            {/* Visual simulation of "noise" with a pattern if possible, or just a placeholder message if debug was needed, but here we just want it to look okay-ish */}
+    return (
+        <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
+            <div style={gradientStyle}>
+                {/* Visual simulation of "noise" with a pattern if possible, or just a placeholder message if debug was needed, but here we just want it to look okay-ish */}
+            </div>
+            <div style={{
+                position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, transparent 0%, rgba(10,10,10,0.8) 100%)'
+            }}></div>
         </div>
-        <div style={{
-            position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, transparent 0%, rgba(10,10,10,0.8) 100%)'
-        }}></div>
-    </div>
-  );
+    );
 };
 
 export default ColorBends;
