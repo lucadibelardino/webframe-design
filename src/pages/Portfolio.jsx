@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Portfolio.css';
 
 // --- MOCK CONTENT DATA ---
@@ -9,12 +9,13 @@ const projects = [
         category: 'Restaurant',
         image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop',
         description: 'Authentic Italian dining experience.',
-        theme: { primary: '#e63946', secondary: '#f1faee', font: '"Playfair Display", serif' },
+        theme: { primary: '#9e2a2b', secondary: '#fdfcdc', font: '"Playfair Display", serif', bgPattern: 'bg-paper' },
+        heroConfig: { type: 'ken-burns', img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop' },
         pages: [
             { type: 'hero', headline: 'Taste the True Italy', sub: 'Handmade pasta, vintage wines, and family tradition.', cta: 'Book a Table' },
-            { type: 'split', title: 'Our Story', text: 'Founded in 1955, La Trattoria brings the flavors of Tuscany to your plate. Our chefs use only the freshest imported ingredients.', img: 'https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2070&auto=format&fit=crop' },
+            { type: 'split', layout: 'img-right', anim: 'fade-left', title: 'Our Story', text: 'Founded in 1955, La Trattoria brings the flavors of Tuscany to your plate. Our chefs use only the freshest imported ingredients.', img: 'https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2070&auto=format&fit=crop' },
             {
-                type: 'menu', title: 'Signature Dishes', items: [
+                type: 'menu', title: 'Signature Dishes', anim: 'fade-up', items: [
                     { name: 'Truffle Tagliatelle', price: '$24', desc: 'Fresh pasta with black truffle cream sauce.' },
                     { name: 'Osso Buco', price: '$32', desc: 'Slow-cooked veal shanks with polenta.' },
                     { name: 'Tiramisu', price: '$12', desc: 'Classic espresso-soaked ladyfingers.' }
@@ -29,17 +30,18 @@ const projects = [
         category: 'Hotel & Resort',
         image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop',
         description: 'Luxury accommodation with ocean views.',
-        theme: { primary: '#1d3557', secondary: '#f1faee', font: '"Montserrat", sans-serif' },
+        theme: { primary: '#1d3557', secondary: '#f0f4f8', font: '"Montserrat", sans-serif', bgPattern: 'bg-gradient-soft' },
+        heroConfig: { type: 'parallax', img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop' },
         pages: [
             { type: 'hero', headline: 'Escape to Paradise', sub: 'Experience world-class service and breathtaking sunsets.', cta: 'Check Availability' },
             {
-                type: 'grid', title: 'Accommodations', items: [
+                type: 'grid', title: 'Accommodations', anim: 'stagger-fade', items: [
                     { title: 'Ocean Suite', desc: 'Panoramic views with private balcony.', img: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1974&auto=format&fit=crop' },
                     { title: 'Garden Villa', desc: 'Secluded luxury amidst tropical gardens.', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop' },
                     { title: 'Penthouse', desc: 'The ultimate luxury experience.', img: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop' }
                 ]
             },
-            { type: 'features', title: 'Resort Amenities', features: ['Infinity Pool', 'Private Beach', '5-Star Spa', 'Fine Dining'] }
+            { type: 'features', title: 'Resort Amenities', anim: 'zoom-in', features: ['Infinity Pool', 'Private Beach', '5-Star Spa', 'Fine Dining'] }
         ]
     },
     {
@@ -48,12 +50,13 @@ const projects = [
         category: 'Fitness Center',
         image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop',
         description: 'State-of-the-art equipment for your fitness journey.',
-        theme: { primary: '#d00000', secondary: '#000000', font: '"Oswald", sans-serif', dark: true },
+        theme: { primary: '#e5383b', secondary: '#0b090a', font: '"Oswald", sans-serif', dark: true, bgPattern: 'bg-noise' },
+        heroConfig: { type: 'video-loop', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop' },
         pages: [
             { type: 'hero', headline: 'Crush Your Goals', sub: 'Join the community that sweats together. 24/7 Access.', cta: 'Start Free Trial' },
-            { type: 'stats', stats: [{ label: 'Members', val: '2000+' }, { label: 'Trainers', val: '50+' }, { label: 'Classes/Wk', val: '100+' }] },
+            { type: 'stats', anim: 'count-up', stats: [{ label: 'Members', val: '2000+' }, { label: 'Trainers', val: '50+' }, { label: 'Classes/Wk', val: '100+' }] },
             {
-                type: 'grid', title: 'Classes', items: [
+                type: 'grid', title: 'Classes', anim: 'fade-up', items: [
                     { title: 'HIIT', desc: 'High intensity interval training.', img: 'https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?q=80&w=1925&auto=format&fit=crop' },
                     { title: 'Yoga Flow', desc: 'Find your balance and focus.', img: 'https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=2069&auto=format&fit=crop' },
                     { title: 'Powerlifting', desc: 'Build strength with pros.', img: 'https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?q=80&w=2070&auto=format&fit=crop' }
@@ -67,11 +70,12 @@ const projects = [
         category: 'Corporate',
         image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop',
         description: 'Innovative software solutions.',
-        theme: { primary: '#2a9d8f', secondary: '#f8f9fa', font: '"Inter", sans-serif' },
+        theme: { primary: '#00b4d8', secondary: '#f0f8ff', font: '"Inter", sans-serif', bgPattern: 'bg-tech-dots' },
+        heroConfig: { type: 'gradient-mesh', colors: ['#0077b6', '#00b4d8', '#90e0ef'] },
         pages: [
             { type: 'hero', headline: 'Building the Future', sub: 'Enterprise-grade software solutions for scaling businesses.', cta: 'Get a Demo' },
-            { type: 'features', title: 'Why Choose Us', features: ['Cloud Native', 'AI Integration', 'Bank-Grade Security', '24/7 Support'] },
-            { type: 'split', title: 'Case Studies', text: 'We helped Global Corp increase efficiency by 300% using our proprietary automation tools.', img: 'https://images.unsplash.com/photo-1553877607-25091b0cdf50?q=80&w=1978&auto=format&fit=crop' }
+            { type: 'features', title: 'Why Choose Us', anim: 'fade-up', features: ['Cloud Native', 'AI Integration', 'Bank-Grade Security', '24/7 Support'] },
+            { type: 'split', layout: 'img-left', anim: 'fade-right', title: 'Case Studies', text: 'We helped Global Corp increase efficiency by 300% using our proprietary automation tools.', img: 'https://images.unsplash.com/photo-1553877607-25091b0cdf50?q=80&w=1978&auto=format&fit=crop' }
         ]
     },
     {
@@ -80,11 +84,12 @@ const projects = [
         category: 'Fashion Store',
         image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop',
         description: 'Contemporary fashion.',
-        theme: { primary: '#000000', secondary: '#ffffff', font: '"Didot", serif' },
+        theme: { primary: '#000000', secondary: '#ffffff', font: '"Didot", serif', bgPattern: 'bg-minimal' },
+        heroConfig: { type: 'ken-burns', img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop' },
         pages: [
             { type: 'hero', headline: 'Define Your Style', sub: 'Spring/Summer 2025 Collection is here.', cta: 'Shop Collection' },
             {
-                type: 'grid', title: 'New Arrivals', items: [
+                type: 'grid', title: 'New Arrivals', anim: 'stagger-fade', items: [
                     { title: 'Silk Blouse', desc: '$120.00', img: 'https://images.unsplash.com/photo-1551163943-3f6a29e39426?q=80&w=1887&auto=format&fit=crop' },
                     { title: 'Leather Tote', desc: '$250.00', img: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=1938&auto=format&fit=crop' },
                     { title: 'Summer Dress', desc: '$180.00', img: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=1946&auto=format&fit=crop' }
@@ -99,35 +104,81 @@ const projects = [
         category: 'Coffee Shop',
         image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2144&auto=format&fit=crop',
         description: 'Organic coffee and fresh pastries.',
-        theme: { primary: '#606c38', secondary: '#fefae0', font: '"Lato", sans-serif' },
+        theme: { primary: '#606c38', secondary: '#fefae0', font: '"Lato", sans-serif', bgPattern: 'bg-leaf' },
+        heroConfig: { type: 'parallax', img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2144&auto=format&fit=crop' },
         pages: [
             { type: 'hero', headline: 'Brewed with Love', sub: 'The perfect start to your morning. Ethically sourced.', cta: 'View Locations' },
             {
-                type: 'menu', title: 'Morning Favorites', items: [
+                type: 'menu', title: 'Morning Favorites', anim: 'fade-up', items: [
                     { name: 'Latte', price: '$4.50', desc: 'Espresso with steamed milk.' },
                     { name: 'Avocado Toast', price: '$8.00', desc: 'Sourdough, smashed avo, chili flakes.' },
                     { name: 'Cold Brew', price: '$4.00', desc: 'Steeped for 18 hours.' }
                 ]
             },
-            { type: 'split', title: 'Our Roastery', text: 'We roast our beans in small batches right here in the city to ensure maximum freshness and flavor.', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1887&auto=format&fit=crop' }
+            { type: 'split', layout: 'img-right', anim: 'fade-left', title: 'Our Roastery', text: 'We roast our beans in small batches right here in the city to ensure maximum freshness and flavor.', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1887&auto=format&fit=crop' }
         ]
     }
 ];
 
-// --- SECTION RENDERER COMPONENT ---
+// --- COMPONENTS ---
+
+// Animated Hero
+const MockHero = ({ config, children }) => {
+    switch (config.type) {
+        case 'ken-burns':
+            return (
+                <div className="mock-hero-container ken-burns">
+                    <div className="bg-img" style={{ backgroundImage: `url(${config.img})` }}></div>
+                    <div className="hero-content">{children}</div>
+                </div>
+            );
+        case 'parallax':
+            return (
+                <div className="mock-hero-container parallax" style={{ backgroundImage: `url(${config.img})` }}>
+                    <div className="hero-overlay"></div>
+                    <div className="hero-content parallax-content">{children}</div>
+                </div>
+            );
+        case 'gradient-mesh':
+            return (
+                <div className="mock-hero-container gradient-mesh" style={{
+                    background: `linear-gradient(45deg, ${config.colors[0]}, ${config.colors[1]}, ${config.colors[2]})`
+                }}>
+                    <div className="mesh-overlay"></div>
+                    <div className="hero-content">{children}</div>
+                </div>
+            );
+        case 'video-loop':
+            return (
+                <div className="mock-hero-container video-loop">
+                    <div className="bg-img" style={{ backgroundImage: `url(${config.img})`, filter: 'grayscale(100%) contrast(1.2)' }}></div>
+                    <div className="scanline"></div>
+                    <div className="hero-content">{children}</div>
+                </div>
+            );
+        default:
+            return <div className="mock-hero-container default">{children}</div>;
+    }
+};
+
+// Section Renderer with Scroll Observer logic integration
 const SectionRenderer = ({ section }) => {
+    // Note: Scroll observation is handled by parent for simplicity in this mock
+    const animClass = section.anim ? `reveal ${section.anim}` : '';
+
     switch (section.type) {
         case 'hero':
+            // Hero content text is rendered inside MockHero children
             return (
-                <div className="mock-section-hero">
-                    <h2>{section.headline}</h2>
+                <div className="mock-section-hero-content">
+                    <h1>{section.headline}</h1>
                     <p>{section.sub}</p>
-                    <button>{section.cta}</button>
+                    <button className="primary-btn">{section.cta}</button>
                 </div>
             );
         case 'split':
             return (
-                <div className="mock-section-split">
+                <div className={`mock-section-split ${section.layout || ''} ${animClass}`}>
                     <div className="split-text">
                         <h3>{section.title}</h3>
                         <p>{section.text}</p>
@@ -139,12 +190,14 @@ const SectionRenderer = ({ section }) => {
             );
         case 'grid':
             return (
-                <div className="mock-section-grid">
+                <div className={`mock-section-grid ${animClass}`}>
                     <h3>{section.title}</h3>
                     <div className="grid-container">
                         {section.items.map((item, i) => (
-                            <div key={i} className="grid-card">
-                                <img src={item.img} alt={item.title} />
+                            <div key={i} className="grid-card" style={{ animationDelay: `${i * 100}ms` }}>
+                                <div className="card-img-wrap">
+                                    <img src={item.img} alt={item.title} />
+                                </div>
                                 <h4>{item.title}</h4>
                                 <p>{item.desc}</p>
                             </div>
@@ -154,7 +207,7 @@ const SectionRenderer = ({ section }) => {
             );
         case 'menu':
             return (
-                <div className="mock-section-menu">
+                <div className={`mock-section-menu ${animClass}`}>
                     <h3>{section.title}</h3>
                     <div className="menu-list">
                         {section.items.map((item, i) => (
@@ -170,7 +223,7 @@ const SectionRenderer = ({ section }) => {
             );
         case 'features':
             return (
-                <div className="mock-section-features">
+                <div className={`mock-section-features ${animClass}`}>
                     <h3>{section.title}</h3>
                     <div className="features-list">
                         {section.features.map((feat, i) => (
@@ -181,7 +234,7 @@ const SectionRenderer = ({ section }) => {
             );
         case 'stats':
             return (
-                <div className="mock-section-stats">
+                <div className={`mock-section-stats ${animClass}`}>
                     {section.stats.map((stat, i) => (
                         <div key={i} className="stat-item">
                             <strong>{stat.val}</strong>
@@ -194,7 +247,7 @@ const SectionRenderer = ({ section }) => {
             return (
                 <div className="mock-section-banner">
                     <h3>{section.text}</h3>
-                    <button>{section.cta}</button>
+                    <button className="outline-btn">{section.cta}</button>
                 </div>
             );
         default:
@@ -203,8 +256,9 @@ const SectionRenderer = ({ section }) => {
 };
 
 const ProjectModal = ({ project, onClose }) => {
+    const scrollRef = useRef(null);
     if (!project) return null;
-    const { theme } = project;
+    const { theme, heroConfig } = project;
 
     const modalStyle = {
         '--p-primary': theme.primary,
@@ -212,12 +266,31 @@ const ProjectModal = ({ project, onClose }) => {
         '--p-font': theme.font,
     };
 
+    // Scroll Observer for Animations
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            },
+            { threshold: 0.1, root: scrollRef.current }
+        );
+
+        const elements = scrollRef.current.querySelectorAll('.reveal');
+        elements.forEach((el) => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, [project]);
+
     return (
         <div className="portfolio-modal-overlay" onClick={onClose}>
             <div className={`portfolio-modal-content ${theme.dark ? 'dark-mode-mock' : ''}`} onClick={e => e.stopPropagation()}>
                 <button className="modal-close" onClick={onClose}>×</button>
 
-                <div className="mock-browser" style={modalStyle}>
+                <div className={`mock-browser ${theme.bgPattern || ''}`} style={modalStyle}>
                     <div className="mock-nav">
                         <span className="mock-logo" style={{ color: theme.primary }}>{project.title}</span>
                         <div className="mock-links">
@@ -227,13 +300,16 @@ const ProjectModal = ({ project, onClose }) => {
                         </div>
                     </div>
 
-                    <div className="mock-body-scroll">
-                        <div className="mock-hero-banner" style={{ backgroundImage: `url(${project.image})` }}>
-                            {/* Overlay is CSS handled */}
-                        </div>
+                    <div className="mock-body-scroll" ref={scrollRef}>
+                        <MockHero config={heroConfig}>
+                            {/* Pass First Section (Hero Text) as Children */}
+                            {project.pages.filter(p => p.type === 'hero').map((section, idx) => (
+                                <SectionRenderer key={idx} section={section} />
+                            ))}
+                        </MockHero>
 
-                        {/* RENDER PAGES DYNAMICALLY */}
-                        {project.pages.map((section, idx) => (
+                        {/* RENDER REST OF PAGES */}
+                        {project.pages.filter(p => p.type !== 'hero').map((section, idx) => (
                             <div key={idx} className={`mock-section-wrapper section-${section.type}`}>
                                 <SectionRenderer section={section} />
                             </div>
