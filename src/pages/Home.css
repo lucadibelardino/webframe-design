@@ -121,11 +121,50 @@
 }
 
 @media (max-width: 768px) {
+    .hero-section {
+        padding-top: 15vh;
+        /* Less top padding on mobile */
+    }
+
+    .hero-content {
+        padding: 0 1.5rem;
+        /* Ensure text doesn't touch edges */
+    }
+
     .hero-section h1 {
         font-size: 2.5rem;
+        word-wrap: break-word;
+        /* Prevent overflow */
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        gap: 1rem;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .section-header h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+    }
+
+    .services-section {
+        padding: 4rem 1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
