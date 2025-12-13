@@ -9,7 +9,7 @@ const Home = () => {
             <section className="hero">
                 <div className="hero-background">
                     <ColorBends
-                        colors={["#ff5c7a", "#8a5cff", "#00ffd1"]}
+                        colors={["#ff3366", "#6633ff", "#00ffcc"]}
                         rotation={30}
                         speed={0.3}
                         scale={1.2}

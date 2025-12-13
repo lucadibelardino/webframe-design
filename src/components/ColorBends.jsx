@@ -58,7 +58,7 @@ void main() {
             cover = max(cover, w);
       }
       col = clamp(sumCol, 0.0, 1.0);
-      a = uTransparent > 0 ? cover : 1.0;
+      a = uTransparent > 0 ? clamp(cover * 3.0, 0.0, 1.0) : 1.0;
     } else {
         vec2 s = q;
         for (int k = 0; k < 3; ++k) {
