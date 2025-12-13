@@ -3,9 +3,13 @@
     height: 100vh;
     min-height: 600px;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Do not center vertically */
     align-items: center;
-    justify-content: center;
     overflow: hidden;
+    padding-top: 35vh;
+    /* Push content down significantly - 35% of viewport height */
 }
 
 .hero-background {
@@ -23,8 +27,6 @@
     text-align: center;
     max-width: 800px;
     pointer-events: auto;
-    padding-top: 10vh;
-    /* Push content down visually */
 }
 
 .hero h1 {

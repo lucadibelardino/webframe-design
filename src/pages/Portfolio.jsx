@@ -30,10 +30,10 @@ const projects = [
         id: 2,
         title: 'Grand Horizon',
         category: 'Hotel & Resort',
-        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1000&auto=format&fit=crop', // Hotel: Luxury resort
         description: 'Luxury accommodation with ocean views.',
         theme: { primary: '#1d3557', secondary: '#f0f4f8', font: '"Montserrat", sans-serif', bgPattern: 'bg-gradient-soft' },
-        heroConfig: { type: 'parallax', img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop' },
+        heroConfig: { type: 'parallax', img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1000&auto=format&fit=crop' },
         pages: [
             { type: 'hero', headline: 'Escape to Paradise', sub: 'Experience world-class service and breathtaking sunsets.', cta: 'Check Availability' },
             {
@@ -50,10 +50,10 @@ const projects = [
         id: 3,
         title: 'FitPulse Gym',
         category: 'Fitness Center',
-        image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop', // Gym: Reliable gym image
         description: 'State-of-the-art equipment for your fitness journey.',
         theme: { primary: '#e5383b', secondary: '#0b090a', font: '"Oswald", sans-serif', dark: true, bgPattern: 'bg-noise' },
-        heroConfig: { type: 'video-loop', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop' },
+        heroConfig: { type: 'video-loop', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop' },
         pages: [
             { type: 'hero', headline: 'Crush Your Goals', sub: 'Join the community that sweats together. 24/7 Access.', cta: 'Start Free Trial' },
             { type: 'stats', anim: 'count-up', stats: [{ label: 'Members', val: '2000+' }, { label: 'Trainers', val: '50+' }, { label: 'Classes/Wk', val: '100+' }] },
@@ -70,7 +70,7 @@ const projects = [
         id: 4,
         title: 'TechNova',
         category: 'Corporate',
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1504384308090-c54be3855092?q=80&w=1000&auto=format&fit=crop', // Tech: Corporate office
         description: 'Innovative software solutions.',
         theme: { primary: '#00b4d8', secondary: '#f0f8ff', font: '"Inter", sans-serif', bgPattern: 'bg-tech-dots' },
         heroConfig: { type: 'gradient-mesh', colors: ['#0077b6', '#00b4d8', '#90e0ef'] },
@@ -104,10 +104,10 @@ const projects = [
         id: 6,
         title: 'GreenLeaf Café',
         category: 'Coffee Shop',
-        image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2144&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1000&auto=format&fit=crop', // Coffee: Refreshing coffee
         description: 'Organic coffee and fresh pastries.',
         theme: { primary: '#606c38', secondary: '#fefae0', font: '"Lato", sans-serif', bgPattern: 'bg-leaf' },
-        heroConfig: { type: 'parallax', img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2144&auto=format&fit=crop' },
+        heroConfig: { type: 'parallax', img: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1000&auto=format&fit=crop' },
         pages: [
             { type: 'hero', headline: 'Brewed with Love', sub: 'The perfect start to your morning. Ethically sourced.', cta: 'View Locations' },
             {
