@@ -70,10 +70,10 @@ const projects = [
         id: 4,
         title: 'TechNova',
         category: 'Corporate',
-        image: 'https://images.unsplash.com/photo-1504384308090-c54be3855092?q=80&w=1000&auto=format&fit=crop', // Tech: Corporate office
+        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop', // Tech: Reliable corporate office
         description: 'Innovative software solutions.',
         theme: { primary: '#00b4d8', secondary: '#f0f8ff', font: '"Inter", sans-serif', bgPattern: 'bg-tech-dots' },
-        heroConfig: { type: 'gradient-mesh', colors: ['#0077b6', '#00b4d8', '#90e0ef'] },
+        heroConfig: { type: 'parallax', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop' },
         pages: [
             { type: 'hero', headline: 'Building the Future', sub: 'Enterprise-grade software solutions for scaling businesses.', cta: 'Get a Demo' },
             { type: 'features', title: 'Why Choose Us', anim: 'fade-up', features: ['Cloud Native', 'AI Integration', 'Bank-Grade Security', '24/7 Support'] },
