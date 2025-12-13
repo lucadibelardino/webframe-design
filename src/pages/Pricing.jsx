@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Hyperspeed, { hyperspeedPresets } from '../components/Hyperspeed';
 import './Pricing.css';
 
 const pricingPackages = [
@@ -86,46 +87,51 @@ const pricingPackages = [
 const Pricing = () => {
     return (
         <div className="pricing-page container">
-            <div className="pricing-header">
-                <h1>I Nostri Pacchetti</h1>
-                <p>Soluzioni trasparenti e scalabili per ogni esigenza digitale.</p>
+            <div className="hyperspeed-background">
+                <Hyperspeed effectOptions={hyperspeedPresets.two} />
             </div>
+            <div className="pricing-content">
+                <div className="pricing-header">
+                    <h1>I Nostri Pacchetti</h1>
+                    <p>Soluzioni trasparenti e scalabili per ogni esigenza digitale.</p>
+                </div>
 
-            <div className="pricing-grid">
-                {pricingPackages.map((pkg) => (
-                    <div key={pkg.id} className={`pricing-card ${pkg.recommended ? 'recommended' : ''}`}>
-                        {pkg.recommended && <div className="badge">Consigliato</div>}
-                        <div className="card-header">
-                            <h3>{pkg.title}</h3>
-                            <span className="subtitle">{pkg.subtitle}</span>
-                            <div className="price">{pkg.price}</div>
-                        </div>
-
-                        <div className="card-body">
-                            <ul className="features-list">
-                                {pkg.features.map((feat, i) => (
-                                    <li key={i}>✓ {feat}</li>
-                                ))}
-                            </ul>
-
-                            <div className="backend-info">
-                                <strong>Backend:</strong> {pkg.backend}
+                <div className="pricing-grid">
+                    {pricingPackages.map((pkg) => (
+                        <div key={pkg.id} className={`pricing-card ${pkg.recommended ? 'recommended' : ''}`}>
+                            {pkg.recommended && <div className="badge">Consigliato</div>}
+                            <div className="card-header">
+                                <h3>{pkg.title}</h3>
+                                <span className="subtitle">{pkg.subtitle}</span>
+                                <div className="price">{pkg.price}</div>
                             </div>
 
-                            {pkg.extra && (
-                                <div className="extra-info">
-                                    <em>Extra: {pkg.extra}</em>
-                                </div>
-                            )}
-                        </div>
+                            <div className="card-body">
+                                <ul className="features-list">
+                                    {pkg.features.map((feat, i) => (
+                                        <li key={i}>✓ {feat}</li>
+                                    ))}
+                                </ul>
 
-                        <div className="card-footer">
-                            <Link to="/contact" className={`btn ${pkg.recommended ? 'btn-primary' : 'btn-outline'}`}>
-                                Richiedi Preventivo
-                            </Link>
+                                <div className="backend-info">
+                                    <strong>Backend:</strong> {pkg.backend}
+                                </div>
+
+                                {pkg.extra && (
+                                    <div className="extra-info">
+                                        <em>Extra: {pkg.extra}</em>
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="card-footer">
+                                <Link to="/contact" className={`btn ${pkg.recommended ? 'btn-primary' : 'btn-outline'}`}>
+                                    Richiedi Preventivo
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );
