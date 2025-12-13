@@ -543,7 +543,6 @@
 
 
 
-
 /* --- Split Section Layout --- */
 .mock-section-split {
     display: flex;
@@ -575,7 +574,7 @@
     height: 400px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .split-img img {
@@ -594,7 +593,8 @@
 .mock-section-grid {
     padding: 6rem 10%;
     text-align: center;
-    background: rgba(0,0,0,0.02); /* Slight contrast */
+    background: rgba(0, 0, 0, 0.02);
+    /* Slight contrast */
 }
 
 .mock-section-grid h3 {
@@ -613,7 +613,7 @@
     background: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     /* Default visibility ensured by previous fix */
@@ -621,7 +621,7 @@
 
 .grid-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .card-img-wrap {
@@ -658,6 +658,48 @@
     padding: 6rem 10%;
 }
 
+.mock-section-menu h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--p-primary);
+    border-bottom: 2px solid var(--p-secondary);
+    display: inline-block;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.menu-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+}
+
+.item-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--p-primary);
+}
+
+.item-dots {
+    flex: 1;
+    border-bottom: 1px dotted #ccc;
+    margin: 0 1rem;
+}
+
+.item-price {
+    font-weight: 600;
+}
+
+.item-desc {
+    width: 100%;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+    opacity: 0.7;
+    font-style: italic;
+}
+
 /* Stats Section Refined */
 .mock-section-stats {
     display: flex;
@@ -667,7 +709,7 @@
     padding: 5rem 10%;
     margin: 4rem 10%;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .stat-item {
@@ -683,6 +725,13 @@
     margin-bottom: 0.5rem;
 }
 
+.stat-item span {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
 /* Features Refined */
 .mock-section-features {
     padding: 6rem 10%;
@@ -693,6 +742,13 @@
     font-size: 2.5rem;
     margin-bottom: 3rem;
     color: var(--p-primary);
+}
+
+.features-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .feature-pill {
@@ -734,11 +790,13 @@
 
 .outline-btn:hover {
     background: var(--p-primary);
-    color: white; /* Assuming white matches all themes well enough for contrast on primary */
+    color: white;
+    /* Assuming white matches all themes well enough for contrast on primary */
 }
 
 .dark-mode-mock .outline-btn:hover {
-    color: black; /* If primary is bright */
+    color: black;
+    /* If primary is bright */
 }
 
 /* Footer */
