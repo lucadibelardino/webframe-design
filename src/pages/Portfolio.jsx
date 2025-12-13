@@ -299,17 +299,10 @@ const ProjectModal = ({ project, onClose }) => {
                 <button className="modal-close" onClick={onClose}>×</button>
 
                 <div className={`mock-browser ${theme.bgPattern || ''}`} style={modalStyle}>
-                    <div className="mock-nav">
-                        <span className="mock-logo" style={{ color: theme.primary }}>{project.title}</span>
-                        <div className="mock-links">
-                            <span>Home</span>
-                            <span>About</span>
-                            <span>Contact</span>
-                        </div>
-                    </div>
+                    <MockNav theme={theme} title={project.title} />
 
                     <div className="mock-body-scroll" ref={scrollRef}>
-                        <MockHero config={heroConfig}>
+                        <MockHero config={heroConfig} theme={theme}>
                             {/* Pass First Section (Hero Text) as Children */}
                             {project.pages.filter(p => p.type === 'hero').map((section, idx) => (
                                 <SectionRenderer key={idx} section={section} />
