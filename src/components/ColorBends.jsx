@@ -173,9 +173,15 @@ export default function ColorBends({
         const clock = new THREE.Clock();
 
         const handleResize = () => {
-            const w = container.clientWidth || 1;
-            const h = container.clientHeight || 1;
+            const rect = container.getBoundingClientRect();
+            const w = rect.width;
+            const h = rect.height;
+            const dpr = window.devicePixelRatio || 1;
+
+            renderer.setPixelRatio(dpr);
             renderer.setSize(w, h, false);
+
+            // Update uniforms
             material.uniforms.uCanvas.value.set(w, h);
         };
 
