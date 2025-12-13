@@ -56,6 +56,11 @@
     }
 }
 
+/* =========================================
+   ANIMATIONS & EFFECTS
+   ========================================= */
+
+/* Zoom In (Modal Entrance) */
 @keyframes zoomIn {
     from {
         transform: scale(0.85);
@@ -66,6 +71,200 @@
         transform: scale(1);
         opacity: 1;
     }
+}
+
+/* Scroll Revelations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal.fade-left {
+    transform: translateX(30px);
+}
+
+.reveal.fade-left.active {
+    transform: translateX(0);
+}
+
+.reveal.fade-right {
+    transform: translateX(-30px);
+}
+
+.reveal.fade-right.active {
+    transform: translateX(0);
+}
+
+.reveal.zoom-in {
+    transform: scale(0.9);
+}
+
+.reveal.zoom-in.active {
+    transform: scale(1);
+}
+
+/* Staggered Grid Items */
+.grid-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.active .grid-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   HERO VARIANTS
+   ========================================= */
+
+.mock-hero-container {
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background: #000;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+/* Ken Burns */
+.mock-hero-container.ken-burns .bg-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    animation: kenBurns 20s infinite alternate linear;
+    opacity: 0.7;
+}
+
+@keyframes kenBurns {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}
+
+/* Parallax */
+.mock-hero-container.parallax {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.mock-hero-container.parallax .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Gradient Mesh */
+.mock-hero-container.gradient-mesh {
+    background-size: 200% 200%;
+    animation: gradientFlow 10s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Video Loop (simulated) */
+.mock-hero-container.video-loop .scanline {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(transparent 0,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 3px);
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Buttons inside Hero */
+.primary-btn {
+    padding: 16px 40px;
+    background: white;
+    color: black;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.primary-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   BACKGROUND PATTERNS
+   ========================================= */
+
+.bg-paper {
+    background-color: #fdfcdc;
+    background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+}
+
+.bg-gradient-soft {
+    background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+}
+
+.bg-tech-dots {
+    background-color: #f0f8ff;
+    background-image: radial-gradient(#00b4d8 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.bg-minimal {
+    background-color: #ffffff;
+}
+
+.bg-noise {
+    background-color: #0b090a;
+    background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+}
+
+.bg-leaf {
+    background-color: #fefae0;
+    background-image: radial-gradient(#606c38 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+}
+
+.mock-section-split.img-right {
+    flex-direction: row-reverse;
 }
 
 /* --- MOCK BROWSER STYLES (Restored) --- */
@@ -128,143 +327,6 @@
     opacity: 1;
 }
 
-.mock-body-scroll {
-    flex: 1;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-}
-
-/* Hero Section inside Mock */
-.mock-hero-banner {
-    height: 60vh;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    margin-bottom: 0;
-}
-
-/* Sections General */
-.mock-section-wrapper {
-    padding: 5rem 10%;
-}
-
-.mock-section-hero {
-    background: var(--p-secondary);
-    text-align: center;
-    padding: 6rem 20%;
-}
-
-.mock-section-hero h2 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    color: var(--p-primary);
-    line-height: 1.2;
-}
-
-.dark-mode-mock .mock-section-hero h2 {
-    color: var(--p-primary);
-}
-
-.mock-section-hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.8;
-}
-
-.mock-section-hero button,
-.mock-section-banner button {
-    padding: 14px 32px;
-    background-color: var(--p-primary);
-    color: white;
-    border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.mock-section-hero button:hover {
-    transform: translateY(-2px);
-}
-
-/* Split Section */
-.mock-section-split {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-}
-
-.split-text {
-    flex: 1;
-}
-
-.split-text h3 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--p-primary);
-}
-
-.split-text p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    opacity: 0.8;
-}
-
-.split-img {
-    flex: 1;
-}
-
-.split-img img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Grid Section */
-.mock-section-grid {
-    text-align: center;
-}
-
-.mock-section-grid h3 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--p-primary);
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.grid-card {
-    text-align: left;
-}
-
-.grid-card img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-
-.grid-card h4 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--p-primary);
-}
-
-.grid-card p {
-    font-size: 0.95rem;
-    opacity: 0.7;
-}
-
-/* Menu Section */
-.mock-section-menu {
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 .mock-section-menu h3 {
