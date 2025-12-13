@@ -4,6 +4,7 @@ import './Navbar.css';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
@@ -14,6 +15,11 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Close mobile menu when route changes
+    useEffect(() => {
+        setIsOpen(false);
+    }, [location]);
+
     const isActive = (path) => location.pathname === path;
 
     return (
@@ -22,7 +28,14 @@ const Navbar = () => {
                 <Link to="/" className="logo">
                     WebFrame<span className="dot">.</span>
                 </Link>
-                <div className="nav-links">
+
+                <div className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
+                    <div className={`bar ${isOpen ? 'open' : ''}`}></div>
+                    <div className={`bar ${isOpen ? 'open' : ''}`}></div>
+                    <div className={`bar ${isOpen ? 'open' : ''}`}></div>
+                </div>
+
+                <div className={`nav-links ${isOpen ? 'open' : ''}`}>
                     <Link to="/" className={isActive('/') ? 'active' : ''}>Home</Link>
                     <Link to="/portfolio" className={isActive('/portfolio') ? 'active' : ''}>Portfolio</Link>
                     <Link to="/pricing" className={isActive('/pricing') ? 'active' : ''}>Pricing</Link>

@@ -799,6 +799,67 @@
     /* If primary is bright */
 }
 
+/* --- MOBILE OPTIMIZATION --- */
+@media (max-width: 768px) {
+
+    .mock-section-wrapper,
+    .mock-section-split,
+    .mock-section-hero-content,
+    .mock-section-stats,
+    .mock-section-banner,
+    .mock-section-grid,
+    .mock-section-menu,
+    .mock-section-features {
+        padding: 4rem 1.5rem;
+    }
+
+    .mock-section-hero-content {
+        padding: 4rem 1.5rem;
+    }
+
+    .mock-section-hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .mock-section-split {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .mock-section-split.img-right {
+        flex-direction: column;
+    }
+
+    .split-text h3 {
+        font-size: 2rem;
+    }
+
+    .split-img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .mock-section-stats {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 3rem 1.5rem;
+    }
+
+    .stat-item strong {
+        font-size: 3rem;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-modal-content {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
 /* Footer */
 .mock-footer {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
