@@ -125,9 +125,12 @@ const Pricing = () => {
                             </div>
 
                             <div className="card-footer">
-                                <a href="mailto:luca.dibelardino@gmail.com" className={`btn ${pkg.recommended ? 'btn-primary' : 'btn-outline'}`}>
+                                <button
+                                    onClick={() => window.location.href = 'mailto:luca.dibelardino@gmail.com'}
+                                    className={`btn ${pkg.recommended ? 'btn-primary' : 'btn-outline'}`}
+                                >
                                     Richiedi Preventivo
-                                </a>
+                                </button>
                             </div>
                         </div>
                     ))}
