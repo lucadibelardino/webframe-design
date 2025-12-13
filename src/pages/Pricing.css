@@ -1,19 +1,24 @@
-.page-container {
-    padding-top: 8rem;
-    padding-bottom: 4rem;
+.pricing-page {
+    padding-top: 100px;
+    padding-bottom: 50px;
 }
 
 .pricing-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
 }
 
 .pricing-header h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .pricing-header p {
+    font-size: 1.2rem;
     color: var(--text-secondary);
 }
 
@@ -21,25 +26,31 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    padding: 1rem;
 }
 
 .pricing-card {
-    background: var(--bg-secondary);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
     position: relative;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .pricing-card:hover {
     transform: translateY(-5px);
     border-color: var(--accent-color);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-.pricing-card.popular {
+.pricing-card.recommended {
+    background: rgba(255, 255, 255, 0.07);
     border-color: var(--accent-color);
-    background: linear-gradient(180deg, rgba(138, 92, 255, 0.05) 0%, var(--bg-secondary) 100%);
+    box-shadow: 0 0 20px rgba(100, 108, 255, 0.1);
 }
 
 .badge {
@@ -48,42 +59,113 @@
     right: 20px;
     background: var(--accent-color);
     color: white;
-    padding: 4px 12px;
+    padding: 6px 16px;
     border-radius: 20px;
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.pricing-card h3 {
+.card-header {
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1.5rem;
+}
+
+.card-header h3 {
     font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.subtitle {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
     margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .price {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 2rem;
-}
-
-.pricing-card ul {
-    list-style: none;
-    margin-bottom: 2rem;
-}
-
-.pricing-card ul li {
-    margin-bottom: 1rem;
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-}
-
-.pricing-card ul li::before {
-    content: '✓';
     color: var(--accent-color);
-    margin-right: 10px;
-    font-weight: bold;
 }
 
-.full-width {
-    width: 100%;
+.card-body {
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.features-list li {
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.backend-info {
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+}
+
+.extra-info {
+    font-size: 0.85rem;
+    color: #aaa;
+    text-align: center;
+}
+
+.card-footer {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 0 15px rgba(100, 108, 255, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.btn-outline:hover {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
 }
