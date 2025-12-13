@@ -19,6 +19,7 @@ const Home = () => {
                         parallax={0.6}
                         noise={0.08}
                         transparent={true}
+                        brightness={1.3}
                     />
                 </div>
                 <div className="hero-content container">

@@ -109,7 +109,8 @@ export default function ColorBends({
     warpStrength = 1,
     mouseInfluence = 1,
     parallax = 0.5,
-    noise = 0.1
+    noise = 0.1,
+    brightness = 1
 }) {
     const containerRef = useRef(null);
     const rendererRef = useRef(null);
@@ -253,7 +254,7 @@ export default function ColorBends({
             return new THREE.Vector3(v[0] / 255, v[1] / 255, v[2] / 255);
         };
 
-        const arr = (colors || []).filter(Boolean).slice(0, MAX_COLORS).map(toVec3);
+        const arr = (colors || []).filter(Boolean).slice(0, MAX_COLORS).map(c => toVec3(c).multiplyScalar(brightness));
         for (let i = 0; i < MAX_COLORS; i++) {
             const vec = material.uniforms.uColors.value[i];
             if (i < arr.length) vec.copy(arr[i]);
@@ -274,7 +275,8 @@ export default function ColorBends({
         parallax,
         noise,
         colors,
-        transparent
+        transparent,
+        brightness
     ]);
 
     useEffect(() => {
