@@ -182,6 +182,23 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* Force interactivity for buttons */
+.pricing-content .btn,
+.pricing-content a {
+    position: relative;
+    z-index: 200;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* Ensure background never captures clicks */
+#lights,
+.hyperspeed-background,
+.hyperspeed-background canvas {
+    pointer-events: none !important;
+    z-index: 0 !important;
+}
+
 @media (max-width: 768px) {
     .pricing-grid {
         grid-template-columns: 1fr;
