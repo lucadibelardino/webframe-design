@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ColorBends from '../components/ColorBends';
 import './Home.css';
 
@@ -17,7 +18,7 @@ const Home = () => {
                         mouseInfluence={0.8}
                         parallax={0.6}
                         noise={0.08}
-                        transparent
+                        transparent={false}
                     />
                 </div>
                 <div className="hero-content container">
@@ -28,8 +29,8 @@ const Home = () => {
                         Premium web design for forward-thinking brands. We blend aesthetics with functionality to create immersive experiences.
                     </p>
                     <div className="hero-cta">
-                        <a href="/portfolio" className="btn btn-primary">View Our Work</a>
-                        <a href="/pricing" className="btn btn-outline">Start a Project</a>
+                        <Link to="/portfolio" className="btn btn-primary">View Our Work</Link>
+                        <Link to="/pricing" className="btn btn-outline">Start a Project</Link>
                     </div>
                 </div>
             </section>
