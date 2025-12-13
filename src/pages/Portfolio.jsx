@@ -9,10 +9,10 @@ const projects = [
         id: 1,
         title: 'La Trattoria',
         category: 'Restaurant',
-        image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop', // Restaurant: New reliable URL
         description: 'Authentic Italian dining experience.',
         theme: { primary: '#9e2a2b', secondary: '#fdfcdc', font: '"Playfair Display", serif', bgPattern: 'bg-paper' },
-        heroConfig: { type: 'ken-burns', img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop' },
+        heroConfig: { type: 'ken-burns', img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop' },
         pages: [
             { type: 'hero', headline: 'Taste the True Italy', sub: 'Handmade pasta, vintage wines, and family tradition.', cta: 'Book a Table' },
             { type: 'split', layout: 'img-right', anim: 'fade-left', title: 'Our Story', text: 'Founded in 1955, La Trattoria brings the flavors of Tuscany to your plate. Our chefs use only the freshest imported ingredients.', img: 'https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2070&auto=format&fit=crop' },
