@@ -70,9 +70,9 @@ export const hyperspeedPresets = {
             background: 0x000000,
             shoulderLines: 0x131318,
             brokenLines: 0x131318,
-            leftCars: [0xff102a, 0xeb383e, 0xff102a],
-            rightCars: [0xdadafa, 0xbebae3, 0x8f97e4],
-            sticks: 0xdadafa
+            leftCars: [0x8a5cff, 0x9d7afb, 0x6a3bc9], // Purples (Accent)
+            rightCars: [0x00ecff, 0x65dcfa, 0x22a7f0], // Cyans (Secondary)
+            sticks: 0x8a5cff // Purple Sticks
         }
     },
     three: {
