@@ -468,6 +468,30 @@
     font-family: var(--p-font, sans-serif);
     --p-primary: #333;
     --p-secondary: #f4f4f4;
+    overflow: hidden;
+    /* Ensure only body scrolls, not entire container */
+    position: relative;
+}
+
+/* This class was missing in CSS but used in JSX */
+.mock-body-scroll {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    position: relative;
+    /* Custom Scrollbar for better look */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.mock-body-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.mock-body-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 }
 
 .dark-mode-mock .mock-browser {
