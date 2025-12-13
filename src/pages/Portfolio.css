@@ -110,15 +110,18 @@
 }
 
 /* Staggered Grid Items */
+/* Staggered Grid Items */
 .grid-card {
-    opacity: 0;
-    transform: translateY(20px);
+    /* Default visibility to avoid permanent hidden state */
+    opacity: 1;
+    transform: translateY(0);
     transition: all 0.6s ease;
 }
 
-.active .grid-card {
-    opacity: 1;
-    transform: translateY(0);
+/* If the parent grid container has the 'reveal' class but NOT 'active', hide cards */
+.reveal:not(.active) .grid-card {
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 

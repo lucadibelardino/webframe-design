@@ -276,13 +276,21 @@ const ProjectModal = ({ project, onClose }) => {
                     }
                 });
             },
-            { threshold: 0.1, root: scrollRef.current }
+            { threshold: 0.1 } // Removed root: scrollRef.current to use viewport as fallback for better reliability
         );
 
         const elements = scrollRef.current.querySelectorAll('.reveal');
         elements.forEach((el) => observer.observe(el));
 
-        return () => observer.disconnect();
+        // Failsafe: Ensure everything becomes visible after 1 second if observer misses
+        const timer = setTimeout(() => {
+            elements.forEach(el => el.classList.add('active'));
+        }, 1000);
+
+        return () => {
+            observer.disconnect();
+            clearTimeout(timer);
+        };
     }, [project]);
 
     return (
