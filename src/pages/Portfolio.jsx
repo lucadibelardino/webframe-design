@@ -15,7 +15,7 @@ const projects = [
         heroConfig: { type: 'ken-burns', img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop' },
         pages: [
             { type: 'hero', headline: 'Taste the True Italy', sub: 'Handmade pasta, vintage wines, and family tradition.', cta: 'Book a Table' },
-            { type: 'split', layout: 'img-right', anim: 'fade-left', title: 'Our Story', text: 'Founded in 1955, La Trattoria brings the flavors of Tuscany to your plate. Our chefs use only the freshest imported ingredients.', img: 'https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2070&auto=format&fit=crop' },
+            { type: 'split', layout: 'img-right', anim: 'fade-left', title: 'Our Story', text: 'Founded in 1955, La Trattoria brings the flavors of Tuscany to your plate. Our chefs use only the freshest imported ingredients.', img: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1000&auto=format&fit=crop' },
             {
                 type: 'menu', title: 'Signature Dishes', anim: 'fade-up', items: [
                     { name: 'Truffle Tagliatelle', price: '$24', desc: 'Fresh pasta with black truffle cream sauce.' },
@@ -77,7 +77,7 @@ const projects = [
         pages: [
             { type: 'hero', headline: 'Building the Future', sub: 'Enterprise-grade software solutions for scaling businesses.', cta: 'Get a Demo' },
             { type: 'features', title: 'Why Choose Us', anim: 'fade-up', features: ['Cloud Native', 'AI Integration', 'Bank-Grade Security', '24/7 Support'] },
-            { type: 'split', layout: 'img-left', anim: 'fade-right', title: 'Case Studies', text: 'We helped Global Corp increase efficiency by 300% using our proprietary automation tools.', img: 'https://images.unsplash.com/photo-1553877607-25091b0cdf50?q=80&w=1978&auto=format&fit=crop' }
+            { type: 'split', layout: 'img-left', anim: 'fade-right', title: 'Case Studies', text: 'We helped Global Corp increase efficiency by 300% using our proprietary automation tools.', img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1000&auto=format&fit=crop' }
         ]
     },
     {
