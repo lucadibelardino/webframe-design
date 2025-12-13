@@ -77,7 +77,7 @@ const projects = [
         pages: [
             { type: 'hero', headline: 'Building the Future', sub: 'Enterprise-grade software solutions for scaling businesses.', cta: 'Get a Demo' },
             { type: 'features', title: 'Why Choose Us', anim: 'fade-up', features: ['Cloud Native', 'AI Integration', 'Bank-Grade Security', '24/7 Support'] },
-            { type: 'split', layout: 'img-left', anim: 'fade-right', title: 'Case Studies', text: 'We helped Global Corp increase efficiency by 300% using our proprietary automation tools.', img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1000&auto=format&fit=crop' }
+            { type: 'split', layout: 'img-left', anim: 'fade-right', title: 'Case Studies', text: 'We helped Global Corp increase efficiency by 300% using our proprietary automation tools.', img: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1000&auto=format&fit=crop' }
         ]
     },
     {
