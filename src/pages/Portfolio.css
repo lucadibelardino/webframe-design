@@ -543,81 +543,156 @@
 
 
 
-.mock-section-menu h3 {
+
+/* --- Split Section Layout --- */
+.mock-section-split {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 6rem 10%;
+}
+
+.split-text {
+    flex: 1;
+    text-align: left;
+}
+
+.split-text h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--p-primary);
+    line-height: 1.2;
+}
+
+.split-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+.split-img {
+    flex: 1;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.split-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.mock-section-split:hover .split-img img {
+    transform: scale(1.05);
+}
+
+
+/* --- Grid Section Layout --- */
+.mock-section-grid {
+    padding: 6rem 10%;
     text-align: center;
+    background: rgba(0,0,0,0.02); /* Slight contrast */
+}
+
+.mock-section-grid h3 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     color: var(--p-primary);
-    border-bottom: 2px solid var(--p-secondary);
-    display: inline-block;
-    padding-bottom: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.grid-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Default visibility ensured by previous fix */
+}
+
+.grid-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card-img-wrap {
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-img-wrap img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.menu-item {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    margin-bottom: 1.5rem;
-}
-
-.item-name {
-    font-weight: 700;
-    font-size: 1.2rem;
+.grid-card h4 {
+    padding: 1.5rem 1.5rem 0.5rem;
+    font-size: 1.25rem;
     color: var(--p-primary);
 }
 
-.item-dots {
-    flex: 1;
-    border-bottom: 1px dotted #ccc;
-    margin: 0 1rem;
-}
-
-.item-price {
-    font-weight: 600;
-}
-
-.item-desc {
-    width: 100%;
-    font-size: 0.9rem;
-    margin-top: 0.4rem;
+.grid-card p {
+    padding: 0 1.5rem 1.5rem;
+    font-size: 0.95rem;
     opacity: 0.7;
-    font-style: italic;
+    margin-bottom: 0;
 }
 
-/* Stats Section */
+.dark-mode-mock .grid-card {
+    background: #1a1a1a;
+}
+
+
+/* --- Menu Section Layout --- */
+.mock-section-menu {
+    padding: 6rem 10%;
+}
+
+/* Stats Section Refined */
 .mock-section-stats {
     display: flex;
     justify-content: space-around;
     background: var(--p-primary);
     color: white;
-    padding: 4rem 2rem;
-    border-radius: 12px;
+    padding: 5rem 10%;
+    margin: 4rem 10%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .stat-item {
     text-align: center;
+    transform: translateY(0);
 }
 
 .stat-item strong {
     display: block;
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.5rem;
 }
 
-.stat-item span {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.8;
+/* Features Refined */
+.mock-section-features {
+    padding: 6rem 10%;
+    text-align: center;
 }
 
-/* Features */
-.features-list {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+.mock-section-features h3 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--p-primary);
 }
 
 .feature-pill {
@@ -626,6 +701,44 @@
     border-radius: 50px;
     font-weight: 600;
     color: var(--p-primary);
+}
+
+
+/* Banner Call to Action */
+.mock-section-banner {
+    padding: 5rem 10%;
+    text-align: center;
+    background: var(--p-secondary);
+    margin: 3rem 0;
+}
+
+.mock-section-banner h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--p-primary);
+}
+
+.outline-btn {
+    padding: 14px 32px;
+    border: 2px solid var(--p-primary);
+    background: transparent;
+    color: var(--p-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.outline-btn:hover {
+    background: var(--p-primary);
+    color: white; /* Assuming white matches all themes well enough for contrast on primary */
+}
+
+.dark-mode-mock .outline-btn:hover {
+    color: black; /* If primary is bright */
 }
 
 /* Footer */
