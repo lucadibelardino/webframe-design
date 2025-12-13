@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Portfolio.css';
+import { MockHero, MockNav } from '../components/MockComponents';
+import '../components/MockComponents.css';
 
 // --- MOCK CONTENT DATA ---
 const projects = [
@@ -122,44 +124,7 @@ const projects = [
 
 // --- COMPONENTS ---
 
-// Animated Hero
-const MockHero = ({ config, children }) => {
-    switch (config.type) {
-        case 'ken-burns':
-            return (
-                <div className="mock-hero-container ken-burns">
-                    <div className="bg-img" style={{ backgroundImage: `url(${config.img})` }}></div>
-                    <div className="hero-content">{children}</div>
-                </div>
-            );
-        case 'parallax':
-            return (
-                <div className="mock-hero-container parallax" style={{ backgroundImage: `url(${config.img})` }}>
-                    <div className="hero-overlay"></div>
-                    <div className="hero-content parallax-content">{children}</div>
-                </div>
-            );
-        case 'gradient-mesh':
-            return (
-                <div className="mock-hero-container gradient-mesh" style={{
-                    background: `linear-gradient(45deg, ${config.colors[0]}, ${config.colors[1]}, ${config.colors[2]})`
-                }}>
-                    <div className="mesh-overlay"></div>
-                    <div className="hero-content">{children}</div>
-                </div>
-            );
-        case 'video-loop':
-            return (
-                <div className="mock-hero-container video-loop">
-                    <div className="bg-img" style={{ backgroundImage: `url(${config.img})`, filter: 'grayscale(100%) contrast(1.2)' }}></div>
-                    <div className="scanline"></div>
-                    <div className="hero-content">{children}</div>
-                </div>
-            );
-        default:
-            return <div className="mock-hero-container default">{children}</div>;
-    }
-};
+// MockHero is imported from ../components/MockComponents
 
 // Section Renderer with Scroll Observer logic integration
 const SectionRenderer = ({ section }) => {
