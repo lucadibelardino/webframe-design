@@ -18,7 +18,7 @@ const Home = () => {
                         mouseInfluence={0.8}
                         parallax={0.6}
                         noise={0.08}
-                        transparent={false}
+                        transparent={true}
                     />
                 </div>
                 <div className="hero-content container">
