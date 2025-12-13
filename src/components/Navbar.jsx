@@ -25,7 +25,7 @@ const Navbar = () => {
                 <div className="nav-links">
                     <Link to="/" className={isActive('/') ? 'active' : ''}>Home</Link>
                     <Link to="/portfolio" className={isActive('/portfolio') ? 'active' : ''}>Portfolio</Link>
-                    <Link to="/pricing" className={isActive('/pricing') ? 'active' : ''}>Pricing</Link>
+                    <Link to="/price" className={isActive('/price') ? 'active' : ''}>Pricing</Link>
                 </div>
             </div>
         </nav>

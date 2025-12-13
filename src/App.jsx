@@ -12,7 +12,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/price" element={<Pricing />} />
+        <Route path="/pricing" element={<Pricing />} /> {/* Fallback/Alias */}
         <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
       <Footer />

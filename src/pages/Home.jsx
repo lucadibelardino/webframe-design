@@ -30,7 +30,7 @@ const Home = () => {
                     </p>
                     <div className="hero-cta">
                         <Link to="/portfolio" className="btn btn-primary">View Our Work</Link>
-                        <Link to="/pricing" className="btn btn-outline">Start a Project</Link>
+                        <Link to="/price" className="btn btn-outline">Start a Project</Link>
                     </div>
                 </div>
             </section>
