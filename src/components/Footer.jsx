@@ -19,8 +19,9 @@ const Footer = () => {
                 </div>
                 <div className="footer-col">
                     <h4>Connect</h4>
-                    <a href="tel:+393518085256">+39 351 808 5256</a>
-                    <a href="mailto:luca.dibelardino@gmail.com">luca.dibelardino@gmail.com</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
                 </div>
             </div>
             <div className="footer-bottom">
